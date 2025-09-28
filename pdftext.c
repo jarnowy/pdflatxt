@@ -38,8 +38,8 @@ Version 1.1
 #define LINE_END '\015'  /* CR used in xref table */
 #define FF 12            /* formfeed character (^L) */
 
-char *appname = "text2pdf v1.1";
-char *progname = "text2pdf";
+char *appname = "pdftext v1.1";
+char *progname = "pdftext";
 
 FILE *infile;
 int pageNo = 0;
@@ -408,6 +408,8 @@ void ShowHelp(){
   printf("  -h\t\tshow this message\n");
   printf("  -f<font>\tuse PostScript <font> (must be in standard 14, default: Courier)\n");
   printf("  -I\t\tuse ISOLatin1Encoding\n");
+  printf("  -W\t\tuse Win1252Encoding\n");
+  printf("  -P\t\tuse IBM858Encoding\n");
   printf("  -s<size>\tuse font at given pointsize (default %d)\n", pointSize);
   printf("  -v<dist>\tuse given line spacing (default %d points)\n", vertSpace);
   printf("  -l<lines>\tlines per page (default 60, determined automatically\n\t\tif unspecified)\n");
@@ -451,11 +453,14 @@ int main(int argc, char **argv){
 	strcat(font, ++argv[i]);
 	break;
       case 'I':
+	ISOEnc = 1;
+	break;
+      case 'P':
 	IBM858Enc = 1;
 	break;
-      // case 'W':
-	// WinAnsiEnc = 1;
-	// break;
+      case 'W':
+	WinAnsiEnc = 1;
+	break;
       case 'F':
 	doFFs = 0;
 	break;
