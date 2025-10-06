@@ -38,8 +38,8 @@ Version 1.1
 #define LINE_END '\015'  /* CR used in xref table */
 #define FF 12            /* formfeed character (^L) */
 
-char *appname = "pdftext v1.1";
-char *progname = "pdftext";
+char *appname = "pdflatxt v1.1";
+char *progname = "pdflatxt";
 
 FILE *infile;
 int pageNo = 0;
